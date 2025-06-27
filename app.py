@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # 👈 NEW
+
 from scraper import scrape_all
 
 app = Flask(__name__)
+CORS(app)  # 👈 NEW
 
 @app.route("/search", methods=["GET"])
 def search():
